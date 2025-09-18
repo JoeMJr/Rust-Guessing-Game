@@ -1,0 +1,25 @@
+use std::io;
+use rand::Rng;
+
+fn main() {
+    println!("Hello, world!");
+    println!("Guess a Number");
+    println!("Please enter a number between 0 and 100");
+    let mut guess = String::new();
+    let num = rand::rng().random_range(0..100);
+    println!("{}", num);
+    io::stdin()
+        .read_line(&mut guess)
+        .expect("Failed to read line");
+    
+    println!("You guessed: {guess}");
+    
+    let test = num.to_string();
+    
+    if guess.trim() == test {
+        println!("You got it right, it was {}", num)
+    }
+    else{
+        println!("You got it wrong, it was {}", num)
+    }
+}
